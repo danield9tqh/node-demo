@@ -1,12 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import HomePage from "./components/HomePage/index";
 
-class HomePage extends React.Component {
-  render() {
-    return (
-      <div>Hello, React!</div>
-    );
-  }
-}
-
-ReactDOM.render(<HomePage />, document.getElementById('root'));
+ReactDOM.render(<HomePage name={"Props"}/>, document.getElementById('root'));
