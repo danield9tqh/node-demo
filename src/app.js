@@ -1,7 +1,12 @@
-class MyClass {
-  static greet (name) {
-    console.log("Hello, " + name + "!");
+import React from "react";
+import ReactDOM from "react-dom";
+
+class HomePage extends React.Component {
+  render() {
+    return (
+      <div>Hello, React!</div>
+    );
   }
 }
 
-MyClass.greet("ES6");
+ReactDOM.render(<HomePage />, document.getElementById('root'));
