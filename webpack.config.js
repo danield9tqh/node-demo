@@ -6,5 +6,17 @@ module.exports = {
         path: path.join(__dirname, "src", "static", "js"),
         publicPath: "js",
         filename: "bundle.js"
+    },
+    module: {
+        loaders: [
+            {
+                test: /\.js$/,
+                exclude: /(node_modules)/,
+                loader: 'babel-loader',
+                query: {
+                    presets: ['es2015']
+                }
+            }
+        ]
     }
 };

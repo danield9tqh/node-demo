@@ -1,1 +1,7 @@
-console.log("Hello, World!");
+class MyClass {
+  static greet (name) {
+    console.log("Hello, " + name + "!");
+  }
+}
+
+MyClass.greet("ES6");
