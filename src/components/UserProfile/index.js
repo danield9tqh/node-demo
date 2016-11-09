@@ -9,11 +9,42 @@ export default class UserProfile extends React.Component {
     });
   }
 
+  getImages() {
+    if(this.state.images) {
+      return (
+        this.state.images.map((img) => {
+          return <div key={img.toString()}><img src={img.url} /></div>
+        })
+      );
+    } else {
+      return null;
+    }
+  }
+
+  getName() {
+    return <div>Name: {this.state.display_name}</div>;
+  }
+
+  getUsername() {
+    return <div>Username: {this.state.id}</div>;
+  }
+
+  getNumFollowers() {
+    return <div>Followers: {this.state.followers.total}</div>
+  }
+
   render() {
-    return (
-      <div>
-        {this.state ? this.state.display_name : null}
-      </div>
-    );
+    if (this.state) {
+      return (
+        <div>
+          {this.getImages()}
+          {this.getName()}
+          {this.getUsername()}
+          {this.getNumFollowers()}
+        </div>
+      );
+    } else {
+      return null
+    }
   }
 }
