@@ -1,0 +1,7 @@
+.display {
+  background: #2ebd59;
+  padding: 20;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+}
