@@ -1,51 +1,35 @@
 import React from "react";
-import spotify from "../../spotifyAPI";
 require("./style.css");
 
 export default class UserProfile extends React.Component {
 
-  componentDidMount() {
-    spotify.getUserProfile(this.props.username).then((profile) => {
-      this.setState(profile);
-    });
-  }
-
-  getImages() {
-    if(this.state.images) {
+  renderImage() {
+    if(this.props.profile.images && this.props.profile.images[0]) {
       return (
-        <div key={this.state.images[0].toString()}><img src={this.state.images[0].url} /></div>
+        <img src={this.props.profile.images[0].url} />
       );
     } else {
-      return null;
+      const blank_img_url = "http://www.porticodesign.com/wp-content/uploads/2014/03/blank-person-07d1653f840307220b203ecb834f5904.png";
+      return <img src={blank_img_url} />;
     }
   }
 
-  getName() {
-    return <div className="attribute">Name: {this.state.display_name}</div>;
-  }
-
-  getUsername() {
-    return <div className="attribute">Username: {this.state.id}</div>;
-  }
-
-  getNumFollowers() {
-    return <div className="attribute">Followers: {this.state.followers.total}</div>
+  renderAttributes() {
+    return (
+      <div className="attributes">
+        <div className="attribute">Name: {this.props.profile.display_name}</div>
+        <div className="attribute">Username: {this.props.profile.id}</div>
+        <div className="attribute">Followers: {this.props.profile.followers.total}</div>
+      </div>
+    );
   }
 
   render() {
-    if (this.state) {
-      return (
-        <div className="profile">
-          {this.getImages()}
-          <div className="attributes">
-            {this.getName()}
-            {this.getUsername()}
-            {this.getNumFollowers()}
-          </div>
-        </div>
-      );
-    } else {
-      return null
-    }
+    return (
+      <div className="profile">
+        {this.props.profile ? this.renderImage() : null}
+        {this.props.profile ? this.renderAttributes(): null}
+      </div>
+    );
   }
 }
