@@ -1,0 +1,25 @@
+.profile {
+  background: #2ebd59;
+  border-radius: 10px;
+  height: 150px;
+  min-width: 500px;
+  max-width: 800px;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.attributes {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-family: Circular,Helvetica,Arial,sans-serif;
+}
+
+img {
+  height: 100%;
+  margin-right: 50px;
+  border-radius: 10px 0px 0px 10px;
+}

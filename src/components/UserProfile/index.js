@@ -1,5 +1,6 @@
 import React from "react";
 import spotify from "../../spotifyAPI";
+require("./style.css");
 
 export default class UserProfile extends React.Component {
 
@@ -12,9 +13,7 @@ export default class UserProfile extends React.Component {
   getImages() {
     if(this.state.images) {
       return (
-        this.state.images.map((img) => {
-          return <div key={img.toString()}><img src={img.url} /></div>
-        })
+        <div key={this.state.images[0].toString()}><img src={this.state.images[0].url} /></div>
       );
     } else {
       return null;
@@ -22,25 +21,27 @@ export default class UserProfile extends React.Component {
   }
 
   getName() {
-    return <div>Name: {this.state.display_name}</div>;
+    return <div className="attribute">Name: {this.state.display_name}</div>;
   }
 
   getUsername() {
-    return <div>Username: {this.state.id}</div>;
+    return <div className="attribute">Username: {this.state.id}</div>;
   }
 
   getNumFollowers() {
-    return <div>Followers: {this.state.followers.total}</div>
+    return <div className="attribute">Followers: {this.state.followers.total}</div>
   }
 
   render() {
     if (this.state) {
       return (
-        <div>
+        <div className="profile">
           {this.getImages()}
-          {this.getName()}
-          {this.getUsername()}
-          {this.getNumFollowers()}
+          <div className="attributes">
+            {this.getName()}
+            {this.getUsername()}
+            {this.getNumFollowers()}
+          </div>
         </div>
       );
     } else {
