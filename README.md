@@ -12,7 +12,7 @@ npm install && npm start
 
 ## Going through the demo
 
-The [keynote presentation](node-demo.key) provides a walkthrough of configuring and creating the app. The slides in the presentation also correlate to commits on this repo so that you can check out the state of the code at any point in the presentation. The corresponding commit id will be displayed in the top right of each slide with the command
+The [keynote presentation](node-demo.key) or [pdf version](node-demo.pdf) provides a walkthrough of configuring and creating the app. The slides in the presentation also correlate to commits on this repo so that you can check out the state of the code at any point in the presentation. The corresponding commit id will be displayed in the top right of each slide with the command
 
 ``````
 git reset --hard {commit-id}
